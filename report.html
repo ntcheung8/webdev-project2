@@ -16,6 +16,10 @@
             max-width: 65%;
             min-width: 20%;
         }
+
+        .code {
+            font-family: monospace;
+        }
         
         li {
             margin-bottom: 5px;
@@ -48,13 +52,51 @@
             <li>Create, read, update, and delete (CRUD) operations are supported.</li>
             <li>Uses ufw to block all unused ports.</li>
             <li>Created Nginx server for global, encrypted access to the web service.</li>
-            <li></li>
+            <li>Supports cross-origin resource sharing and an options wildcard endpoint.</li>
             <li>Web service was started using pm2 to stay running.</li>
             <li>Stored in a Git repository shared with twodee.</li>
             <li>Database's creation and schema scripts in git repository.</li>
-            <li></li>
+            <li>Could have set up git repository earlier.</li>
             <li>See report <a href=https://project2.nickc.me:8443/report.html>here</a>.</li>
         </ol>
+
+        Here are some examples of how I used curl to test the site.
+        <p class="code">
+            <b>Read</b>
+            <pre>
+    curl https://project2.nickc.me:8443/plants/firebreather
+            </pre>
+        </p>
+        <p class="code">
+            <b>Create</b>
+            <pre>
+    curl --header 'Content-Type: application/json' \
+    --data '{"nickname": "puffle", "type": "Gymnosporangium Juniperi Virginianae",
+    "description": "Orange", "height": 5}' \
+    https://project2.nickc.me:8443/plants
+
+    curl https://project2.nickc.me:8443/plants/puffle
+            </pre>
+        </p>
+        <p class="code">
+            <b>Update</b>
+            <pre>
+    curl --header 'Content-Type: application/json' \
+    --request PATCH \
+    --data '{"nickname": "day-zee", "type": "daisy",
+    "description": "Orange", "height": 2918}' \
+    https://project2.nickc.me:8443/plants/8
+
+    curl https://project2.nickc.me:8443/plants/day-zee
+            </pre>
+        </p>
+        <p class="code">
+            <b>Delete</b>
+            <pre>
+    curl --request DELETE \
+    https://project2.nickc.me:8443/plants/2
+            </pre>
+        </p>
     </div>
 
 
