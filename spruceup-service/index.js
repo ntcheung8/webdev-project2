@@ -2,11 +2,11 @@ const { response } = require('express');
 const express = require('express');
 const fs = require('fs');
 const mysql = require('mysql');
+const path = require('path');
 
 const credentials = JSON.parse(fs.readFileSync('credentials.json', 'utf8'));
 const connection = mysql.createConnection(credentials);
 
-const path = require('path');
 const service = express();
 
 service.use(express.json());
