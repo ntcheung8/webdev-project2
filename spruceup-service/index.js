@@ -33,7 +33,7 @@ service.get('/', (request, response) => {
 });
 
 service.get('/report.html', (request, response) => {
-  response.sendFile(path.join(__dirname, '/index.html'));
+  response.sendFile(path.join(__dirname, '/report.html'));
 });
 
 service.get('/plants/:nick', (request, response) => {
