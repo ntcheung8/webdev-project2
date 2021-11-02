@@ -27,6 +27,10 @@ function rowToPlant(row) {
   };
 }
 
+service.get('/', function(request, response) {
+  response.sendFile(path.join(__dirname, '/index.html'));
+});
+
 service.get('/report.html', function(request, response) {
   response.sendFile(path.join(__dirname, '/index.html'));
 });
