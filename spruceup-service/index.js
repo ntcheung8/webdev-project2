@@ -30,7 +30,7 @@ function rowToPlant(row) {
 }
 
 service.get('/report.html', (request, response) => {
-  response.sendFile('report.html');
+  response.sendFile('/report.html');
 });
 
 service.get('/plants/:nick', (request, response) => {
