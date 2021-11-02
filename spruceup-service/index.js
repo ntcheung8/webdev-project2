@@ -27,8 +27,8 @@ function rowToPlant(row) {
   };
 }
 
-service.get('/report.html', (request, response) => {
-  response.render(report.html);
+service.get('/report.html', function(request, response) {
+  response.sendFile(path.join(__dirname, '/index.html'));
 });
 
 service.get('/plants/:nick', (request, response) => {
