@@ -27,11 +27,11 @@ function rowToPlant(row) {
   };
 }
 
-service.get('/', function(request, response) {
+service.get('/', (request, response) => {
   response.sendFile(path.join(__dirname, '/index.html'));
 });
 
-service.get('/report.html', function(request, response) {
+service.get('/report.html', (request, response) => {
   response.sendFile(path.join(__dirname, '/index.html'));
 });
 
