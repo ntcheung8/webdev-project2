@@ -1,3 +1,4 @@
+const { response } = require('express');
 const express = require('express');
 const fs = require('fs');
 const mysql = require('mysql');
@@ -25,6 +26,10 @@ function rowToPlant(row) {
     height: row.height,
   };
 }
+
+service.get('/report.html', (request, response) => {
+  response.render(report.html);
+});
 
 service.get('/plants/:nick', (request, response) => {
   const parameters = [
