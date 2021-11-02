@@ -2,6 +2,7 @@ const { response } = require('express');
 const express = require('express');
 const fs = require('fs');
 const mysql = require('mysql');
+const path = require('path');
 
 const credentials = JSON.parse(fs.readFileSync('credentials.json', 'utf8'));
 const connection = mysql.createConnection(credentials);
@@ -28,12 +29,9 @@ function rowToPlant(row) {
   };
 }
 
-service.get('/', (request, response) => {
-  response.sendFile('index.html');
-});
-
 service.get('/report.html', (request, response) => {
-  response.sendFile('report.html');
+  const index = path.join(__dirname, '/', '../public', 'report.html' );
+  response.sendFile(index);
 });
 
 service.get('/plants/:nick', (request, response) => {
